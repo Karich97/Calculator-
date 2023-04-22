@@ -44,23 +44,30 @@ public class SimpleGUI extends JFrame{
 
         public void actionPerformed (ActionEvent e){
             String message = "";
-            if (radioButton1.isSelected()){
-                message += number + Integer.parseInt(input.getText());
-                number = number + Integer.parseInt(input.getText());
+            try {
+                if (radioButton1.isSelected()){
+                    message += number + Integer.parseInt(input.getText());
+                    number = number + Integer.parseInt(input.getText());
+                }
+                else if (radioButton2.isSelected()){
+                    message += number * Integer.parseInt(input.getText());
+                    number = number * Integer.parseInt(input.getText());
+                }
+                else if (radioButton3.isSelected()){
+                    message += number - Integer.parseInt(input.getText());
+                    number = number - Integer.parseInt(input.getText());
+                }
+                else {
+                    message += number / Integer.parseInt(input.getText());
+                    number = number / Integer.parseInt(input.getText());
+                }
+                JOptionPane.showMessageDialog(null, message, "output", JOptionPane.PLAIN_MESSAGE);
             }
-            else if (radioButton2.isSelected()){
-                message += number * Integer.parseInt(input.getText());
-                number = number * Integer.parseInt(input.getText());
+            catch (Exception ex){
+                message = "Use Integer variables";
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, message, "output", JOptionPane.PLAIN_MESSAGE);
             }
-            else if (radioButton3.isSelected()){
-                message += number - Integer.parseInt(input.getText());
-                number = number - Integer.parseInt(input.getText());
-            }
-            else {
-                message += number / Integer.parseInt(input.getText());
-                number = number / Integer.parseInt(input.getText());
-            }
-            JOptionPane.showMessageDialog(null, message, "output", JOptionPane.PLAIN_MESSAGE);
         }
     }
 }
