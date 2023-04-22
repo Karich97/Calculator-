@@ -4,9 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class SimpleGUI extends JFrame{
-    private final JButton button = new JButton("Press");
     private final JTextField input = new JTextField("", 5);
-    private final JLabel label = new JLabel("Input:");
     private final JRadioButton radioButton1 = new JRadioButton("addition");
     private final JRadioButton radioButton2 = new JRadioButton("multiplying");
     private final JRadioButton radioButton3 = new JRadioButton("subtraction");
@@ -22,6 +20,7 @@ public class SimpleGUI extends JFrame{
 
         Container container = this.getContentPane();
         container.setLayout(new GridLayout(4,2,1,1));
+        JLabel label = new JLabel("Input:");
         container.add(label);
         container.add(input);
 
@@ -37,6 +36,7 @@ public class SimpleGUI extends JFrame{
         container.add(radioButton3);
         container.add(radioButton4);
 
+        JButton button = new JButton("Press");
         button.addActionListener(new ButtonEventListener ());
         container.add(button);
     }
